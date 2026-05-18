@@ -44,7 +44,7 @@ const projects: Project[] = [
   },
   {
     title: "DeepEmotion Lab",
-    description: "Dual-stream hybrid model fusing RoBERTa and Twitter-RoBERTa for fine-grained emotion detection across 28 categories. Achieved Macro F1 of 0.5407, outperforming standard baselines. Under review at IET Software — Wiley.",
+    description: "Dual-stream hybrid model fusing RoBERTa and Twitter-RoBERTa for fine-grained emotion detection across 28 categories. Achieved Macro F1 of 0.5407, outperforming standard baselines.",
     tags: ["NLP", "Research", "ML"],
     image: null,
     github: "https://github.com/JamadadeHarshita/DeepEmotion-Lab",
