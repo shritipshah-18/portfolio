@@ -1,0 +1,218 @@
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, #ffffff 60%, #e8c9a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(232, 201, 160, 0.2);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+
+  &:hover {
+    border-color: #e8c9a0;
+    color: #e8c9a0;
+  }
+
+  &.active {
+    background: #5000ca;
+    color: white;
+    border-color: #5000ca;
+  }
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-card {
+  border-radius: 16px;
+  border: 1px solid rgba(232, 201, 160, 0.12);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(232, 201, 160, 0.08);
+    border-color: rgba(232, 201, 160, 0.3);
+  }
+
+  &.bento-featured {
+    grid-column: span 2;
+
+    @media (max-width: 600px) {
+      grid-column: span 1;
+    }
+  }
+}
+
+.bento-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+
+  .bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.5));
+  }
+}
+
+.bento-placeholder {
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(135deg, rgba(80, 0, 202, 0.15), rgba(232, 201, 160, 0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(232, 201, 160, 0.1);
+
+  span {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    background: linear-gradient(135deg, #5000ca, #e8c9a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.6;
+  }
+}
+
+.bento-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.bento-top {
+  h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 6px 0 8px;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.company-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(232, 201, 160, 0.1);
+  color: #e8c9a0;
+  border: 1px solid rgba(232, 201, 160, 0.25);
+}
+
+.bento-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bento-tag {
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(80, 0, 202, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  border: 1px solid rgba(80, 0, 202, 0.25);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(232, 201, 160, 0.12);
+    border-color: rgba(232, 201, 160, 0.3);
+    color: #e8c9a0;
+  }
+}
+
+.github-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e8c9a0;
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid rgba(232, 201, 160, 0.4);
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: 'Outfit', sans-serif;
+
+  &:hover {
+    background: rgba(232, 201, 160, 0.1);
+    border-color: #e8c9a0;
+    color: #e8c9a0;
+    transform: translateX(2px);
+  }
+}
