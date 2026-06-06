@@ -1,107 +1,253 @@
-.vertical-timeline {
-  &::before {
-    background: linear-gradient(to bottom, #5000ca, #e8c9a0) !important;
-    width: 3px !important;
+$white:      #FFFFFF;
+$off-white:  #F8F5FF;
+$black:      #0D0D0D;
+$sky:        #A8D8EA;
+$sky-light:  #D6EFF8;
+$lime:       #D4FF4F;
+$lime-light: #F0FFB0;
+$pink:       #FF8FAB;
+$pink-light: #FFD6E0;
+$lavender:   #C9B8FF;
+$lav-light:  #EDE8FF;
+$charcoal:   #2C2C3E;
+$muted:      #7A7A9A;
+
+.brands-section {
+  background: $off-white;
+  padding: 6rem 4rem;
+
+  @media (max-width: 768px) { padding: 4rem 1.5rem; }
+}
+
+// ── HEADER ────────────────────────────────────────────────
+.brands-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.brands-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 1rem;
+}
+
+.brands-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: $black;
+  margin-bottom: 0.8rem;
+
+  em {
+    font-style: italic;
+    background: linear-gradient($sky, $sky) no-repeat;
+    background-size: 100% 8px;
+    background-position: 0 92%;
   }
 }
 
-.vertical-timeline span {
-  color: white;
-  font-family: 'Outfit', sans-serif;
+.brands-sub {
+  font-size: 0.95rem;
+  color: $muted;
 }
 
-.vertical-timeline p {
-  color: rgba(39, 40, 34, 0.85);
-  font-family: 'Outfit', sans-serif;
+// ── BRAND CARDS ───────────────────────────────────────────
+.brands-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 3rem;
+  background: rgba(0,0,0,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.brand-card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  background: $white;
+  transition: background 0.3s;
+  min-height: 320px;
+
+  // alternate image side
+  &:nth-child(even) {
+    grid-template-columns: 1.5fr 1fr;
+
+    .brand-img-wrap { order: 2; }
+    .brand-content  { order: 1; }
+  }
+
+  &:hover { background: #FEFEFE; }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr !important;
+
+    .brand-img-wrap { order: 1 !important; }
+    .brand-content  { order: 2 !important; }
+  }
+}
+
+// IMAGE SIDE
+.brand-img-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+
+  @media (max-width: 768px) { min-height: 220px; }
+}
+
+.brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+
+  .brand-card:hover & { transform: scale(1.03); }
+}
+
+.brand-img-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .brand-card--sky &      { background: $sky-light; }
+  .brand-card--lavender & { background: $lav-light; }
+  .brand-card--lime &     { background: $lime-light; }
+}
+
+.brand-initial {
+  font-family: 'Georgia', serif;
+  font-size: 5rem;
+  font-style: italic;
+  color: rgba(0,0,0,0.15);
+  line-height: 1;
+}
+
+.brand-placeholder-hint {
+  font-size: 0.72rem;
+  color: $muted;
+  text-align: center;
   line-height: 1.6;
-}
 
-.vertical-timeline-element {
-  &:hover .vertical-timeline-element-content {
-    transform: translateX(4px);
-    box-shadow: -4px 4px 20px rgba(232, 201, 160, 0.12) !important;
-    border-left: 2px solid #e8c9a0 !important;
+  code {
+    font-size: 0.68rem;
+    background: rgba(0,0,0,0.06);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    color: $charcoal;
   }
 }
 
-.vertical-timeline-element-content {
-  border-radius: 12px !important;
-  border-left: 2px solid transparent;
-  transition: all 0.3s ease !important;
-  background: white !important;
+.brand-img-badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+
+  &--sky      { background: $sky;      color: $charcoal; }
+  &--lavender { background: $lavender; color: $charcoal; }
+  &--lime     { background: $lime;     color: $charcoal; }
 }
 
-.vertical-timeline-element p {
-  color: rgba(39, 40, 34, 0.8);
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.9rem !important;
+// CONTENT SIDE
+.brand-content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  @media (max-width: 768px) { padding: 2rem 1.5rem; }
 }
 
-.vertical-timeline-element h3 {
-  color: rgb(39, 40, 34);
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.05rem !important;
-  font-weight: 700 !important;
+.brand-num {
+  font-family: 'Georgia', serif;
+  font-size: 0.85rem;
+  color: $muted;
+  letter-spacing: 0.1em;
 }
 
-.vertical-timeline-element h4 {
-  color: #5000ca !important;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.3px;
+.brand-name {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: $black;
+  line-height: 1.2;
 }
 
-.vertical-timeline-element span {
-  color: rgb(39, 40, 34);
-  font-family: 'Outfit', sans-serif;
+.brand-desc {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: $muted;
+  max-width: 420px;
 }
 
-.vertical-timeline-element .vertical-timeline-element-date {
-  color: #e8c9a0 !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 0.85rem !important;
-  letter-spacing: 0.5px;
+.brand-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.vertical-timeline-element-icon {
-  box-shadow: 0 0 0 4px #5000ca,
-              0 0 16px rgba(80, 0, 202, 0.3),
-              inset 0 2px 0 rgba(255,255,255,0.1) !important;
-  transition: box-shadow 0.3s ease;
+.brand-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+
+  &--sky      { background: $sky-light;  color: $charcoal; border: 1px solid $sky; }
+  &--lavender { background: $lav-light;  color: $charcoal; border: 1px solid $lavender; }
+  &--lime     { background: $lime-light; color: $charcoal; border: 1px solid $lime; }
+}
+
+// ── BOTTOM CTA ────────────────────────────────────────────
+.brands-cta {
+  background: $black;
+  border-radius: 12px;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.brands-cta-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: $white;
+}
+
+.brands-cta-btn {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  background: $lime;
+  color: $black;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: opacity 0.3s, transform 0.2s;
 
   &:hover {
-    box-shadow: 0 0 0 4px #e8c9a0,
-                0 0 20px rgba(232, 201, 160, 0.3),
-                inset 0 2px 0 rgba(255,255,255,0.1) !important;
-  }
-}
-
-.items-container {
-  h1 {
-    background: linear-gradient(135deg, #ffffff 60%, #e8c9a0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-  }
-}
-
-.svg-inline--fa {
-  color: white;
-}
-
-@media screen and (max-width: 1170px) {
-  .vertical-timeline-element .vertical-timeline-element-date {
-    color: #5000ca !important;
-    padding-top: 8px;
-  }
-
-  .vertical-timeline-element {
-    &:hover .vertical-timeline-element-content {
-      transform: none;
-    }
+    opacity: 0.85;
+    transform: translateY(-2px);
   }
 }

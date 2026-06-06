@@ -1,134 +1,112 @@
-import React from "react";
-import Chip from '@mui/material/Chip';
+import React from 'react';
 import '../assets/styles/Achievements.scss';
 
-import tableauImg from '../assets/images/tableau.jpg';
-import pathlyImg from '../assets/images/pathly.jpg';
-import lithuaniaImg from '../assets/images/lithuania.jpg';
-
-interface Achievement {
-  image: string | null;
-  badge: string;
-  badgeColor: string;
-  title: string;
-  subtitle: string;
-  date: string;
-  description: string;
-  tags: string[];
-  link: string | null;
-  linkLabel: string | null;
-}
-
-const achievements: Achievement[] = [
+const achievements = [
   {
-    image: tableauImg,
-    badge: "Winner",
-    badgeColor: "#5000ca",
-    title: "IronViz Challenge",
-    subtitle: "Best Data Storytelling",
-    date: "February 2025",
-    description: "Ranked #1 for data storytelling at the college IronViz Challenge. Built an interactive Tableau dashboard analysing IMDb ratings across TV revivals.",
-    tags: ["Tableau", "Data Viz", "Storytelling"],
-    link: "http://bit.ly/4bTkjZs",
-    linkLabel: "View Dashboard",
+    emoji: '📱',
+    title: 'Social Media Growth',
+    metric: '200%+',
+    desc: 'Grew brand accounts across Instagram through consistent content strategy, reels, and community engagement.',
   },
   {
-    image: pathlyImg,
-    badge: "Runners-up",
-    badgeColor: "#e91e63",
-    title: "Q-Hack — Pathly",
-    subtitle: "Le Wagon Challenge",
-    date: "April 2025",
-    description: "Built Pathly at Q-Hack Summit — an AI-powered learning assistant that converts 50 days of skill reflections into personalised course recommendations using GPT-4 and RAG/FAISS.",
-    tags: ["GPT-4", "RAG", "FAISS", "Flask", "MongoDB"],
-    link: "https://github.com/bhanuprasanna2001/debug-thugs",
-    linkLabel: "View on GitHub",
+    emoji: '🎯',
+    title: 'Campaign Performance',
+    metric: '10+ Campaigns',
+    desc: 'Led topical and seasonal campaigns end-to-end — from concept to creative execution and post-analysis.',
   },
   {
-    image: lithuaniaImg,
-    badge: "Winners",
-    badgeColor: "#5000ca",
-    title: "Blended Intensive Programme",
-    subtitle: "Vilniaus Kolegija, Lithuania",
-    date: "May 2025",
-    description: "Represented SRH Heidelberg at an international BIP. Won the AI & Copyright in the Creative Industries challenge by ArtTech Agency Lithuania.",
-    tags: ["AI Ethics", "Copyright", "Creative Industries"],
-    link: null,
-    linkLabel: null,
+    emoji: '🏪',
+    title: 'Brands Managed',
+    metric: '10+ Brands',
+    desc: 'Managed accounts including The Whitecrow Store, Inventure Growth & Securities, Store My Goods, and Vittag.',
   },
   {
-    image: null,
-    badge: "Blog",
-    badgeColor: "#2196f3",
-    title: "Technical Blogging",
-    subtitle: "HashNode",
-    date: "Ongoing",
-    description: "Publishing ML and NLP educational content on HashNode — covering LLMs, embeddings, retrieval systems, and applied AI engineering.",
-    tags: ["ML", "NLP", "LLMs", "Technical Writing"],
-    link: "https://hashnode.com/@jamadadeharshi",
-    linkLabel: "Read Blog",
+    emoji: '🎬',
+    title: 'Content Created',
+    metric: '500+ Posts',
+    desc: 'Created reels, stories, carousels, and static posts with a consistent brand tone and aesthetic.',
+  },
+  {
+    emoji: '🤝',
+    title: 'Client Retention',
+    metric: '100%',
+    desc: 'Maintained strong client relationships through clear communication, reporting, and proactive strategy.',
   },
 ];
 
-function renderLink(item: Achievement) {
-  if (item.link === null || item.linkLabel === null) {
-    return null;
-  }
-  return React.createElement(
-    'a',
-    {
-      href: item.link,
-      target: '_blank',
-      rel: 'noreferrer',
-      className: 'achievement-link',
-      style: { borderColor: item.badgeColor, color: item.badgeColor },
-    },
-    item.linkLabel
-  );
-}
-
 function Achievements() {
   return (
-    <div className="container" id="achievements">
-      <div className="achievements-container">
-        <h1>Achievements</h1>
-        <div className="achievements-grid">
-          {achievements.map((item: Achievement, index: number) => (
-            <div className="achievement-card" key={index}>
-              {item.image !== null && (
-                <div className="achievement-image">
-                  <img src={item.image} alt={item.title} />
-                </div>
-              )}
-              <div className="achievement-content">
-                <div className="achievement-header">
-                  <span
-                    className="achievement-badge"
-                    style={{
-                      background: item.badgeColor + "18",
-                      color: item.badgeColor,
-                      border: "1px solid " + item.badgeColor + "40",
-                    }}
-                  >
-                    {item.badge}
-                  </span>
-                  <span className="achievement-date">{item.date}</span>
-                </div>
-                <h3>{item.title}</h3>
-                <h4>{item.subtitle}</h4>
-                <p>{item.description}</p>
-                <div className="achievement-tags">
-                  {item.tags.map((tag: string, i: number) => (
-                    <Chip key={i} label={tag} className="chip" size="small" />
-                  ))}
-                </div>
-                {renderLink(item)}
+    <section className="achievements-section" id="about">
+
+      <div className="ach-header">
+        <p className="ach-eyebrow">About Me</p>
+        <h2 className="ach-title">
+          yes, <em>and?</em>
+        </h2>
+        <p className="ach-subtitle">
+          Okay but seriously — here's why you should work with me.
+        </p>
+      </div>
+
+      {/* INTRO SPLIT — Image 1 style */}
+      <div className="ach-intro-grid">
+        <div className="ach-intro-left">
+          <p>
+            Hi, I'm <strong>Shriti Shah</strong> — a social media strategist
+            and brand storyteller based in India. I have a BBA from KLE's
+            Lingaraj College and 3+ years of hands-on experience turning
+            small brands into scroll-stopping presences.
+          </p>
+          <p>
+            I've worked across hospitality, finance, fashion, and storage
+            brands — which means I know how to adapt tone, aesthetic, and
+            strategy to completely different audiences.
+          </p>
+          <p>
+            At <strong>Spek Digital</strong> I was Account Lead managing
+            multiple brands simultaneously. Before that, Social Media
+            Coordinator at Starwalkers and intern at DS Wedding & Events.
+          </p>
+          <div className="ach-tags">
+            {['Instagram', 'Reels & Stories', 'Canva', 'Copywriting',
+              'Brand Shoots', 'Content Calendar', 'Analytics', 'Client Servicing'
+            ].map(tag => (
+              <span key={tag} className="ach-tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+        <div className="ach-intro-right">
+          <div className="ach-quote-box">
+            <span className="ach-quote-mark">"</span>
+            <p className="ach-quote-text">
+              I don't just fill up a content calendar — I build a brand world.
+            </p>
+            <p className="ach-quote-name">— Shriti Shah</p>
+          </div>
+        </div>
+      </div>
+
+      {/* ACHIEVEMENTS TIMELINE — Image 2 style */}
+      <div className="ach-timeline-wrap">
+        <p className="ach-timeline-label">Highlights</p>
+        <div className="ach-timeline">
+          {achievements.map((item, i) => (
+            <div className="ach-item" key={i}>
+              <div className="ach-circle">
+                <span className="ach-emoji">{item.emoji}</span>
+              </div>
+              <div className="ach-connector" />
+              <div className="ach-item-content">
+                <span className="ach-metric">{item.metric}</span>
+                <h3 className="ach-item-title">{item.title}</h3>
+                <p className="ach-item-desc">{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+
+    </section>
   );
 }
 

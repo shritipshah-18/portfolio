@@ -1,115 +1,99 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
 
 function Contact() {
+  const [copied, setCopied] = useState(false);
 
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [messageError, setMessageError] = useState<boolean>(false);
-
-  const form = useRef();
-
-  const sendEmail = (e: any) => {
-    e.preventDefault();
-
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
-
-    /* Uncomment below if you want to enable the emailJS */
-
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
-
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+  const copyEmail = () => {
+    navigator.clipboard.writeText('shritipshah@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <div id="contact">
-      <div className="items-container">
-        <div className="contact_wrapper">
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
-          <Box
-            ref={form}
-            component="form"
-            noValidate
-            autoComplete="off"
-            className='contact-form'
-          >
-            <div className='form-flex'>
-              <TextField
-                required
-                id="outlined-required"
-                label="Your Name"
-                placeholder="What's your name?"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
-              />
-            </div>
-            <TextField
-              required
-              id="outlined-multiline-static"
-              label="Message"
-              placeholder="Send me any inquiries or questions"
-              multiline
-              rows={10}
-              className="body-form"
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
-            />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
-            </Button>
-          </Box>
-        </div>
+    <section className="contact-section" id="contact">
+
+      {/* BIG HEADING */}
+      <div className="contact-hero">
+        <p className="contact-eyebrow">Let's Build Your Brand Online ✦</p>
+        <h2 className="contact-title">
+          Looking for someone to<br />
+          <em>creatively manage</em><br />
+          and grow your brand?
+        </h2>
+        <p className="contact-sub">
+          Whether you're launching from scratch or need a fresh strategy —
+          I'd love to hear about your brand. Let's connect.
+        </p>
       </div>
+
+      {/* LINKS ROW */}
+      <div className="contact-links">
+
+        <a
+          href="https://www.instagram.com/shritishah_"
+          target="_blank"
+          rel="noreferrer"
+          className="contact-card contact-card--sky"
+        >
+          <span className="contact-card-icon">📸</span>
+          <div>
+            <span className="contact-card-label">Instagram</span>
+            <span className="contact-card-value">@shritishah_</span>
+          </div>
+          <span className="contact-card-arrow">↗</span>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/shriti-shah-8b8666216"
+          target="_blank"
+          rel="noreferrer"
+          className="contact-card contact-card--lavender"
+        >
+          <span className="contact-card-icon">💼</span>
+          <div>
+            <span className="contact-card-label">LinkedIn</span>
+            <span className="contact-card-value">Shriti Shah</span>
+          </div>
+          <span className="contact-card-arrow">↗</span>
+        </a>
+
+        <button
+          onClick={copyEmail}
+          className="contact-card contact-card--lime"
+        >
+          <span className="contact-card-icon">✉️</span>
+          <div>
+            <span className="contact-card-label">Email</span>
+            <span className="contact-card-value">shritipshah@gmail.com</span>
+          </div>
+          <span className="contact-card-arrow">
+            {copied ? '✓ Copied!' : 'Copy'}
+          </span>
+        </button>
+
+      </div>
+
+      {/* AVAILABILITY BADGE */}
+      <div className="contact-availability">
+        <span className="availability-dot" />
+        <span className="availability-text">
+          Currently available for new clients — DM or email to get started.
+        </span>
+      </div>
+
+          <div className="contact-footer">
+      <span className="contact-footer-logo">Shriti Shah</span>
+      <span className="contact-footer-copy">© 2025 — All rights reserved</span>
+      <span className="contact-footer-credit">
+        Designed & built by{' '}
+        <a href="https://jamadadeharshita.github.io/" target="_blank" rel="noreferrer">
+          Harshita J
+        </a>
+      </span>
     </div>
+
+    </section>
   );
 }
 

@@ -1,30 +1,97 @@
-import React from "react";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import '../assets/styles/Main.scss';
+import React from 'react';
+import '../assets/styles/Main.scss';;
 
 function Main() {
-
   return (
-    <div className="container">
-      <div className="about-section">
-        <div className="image-wrapper">
-          <img src="https://res.cloudinary.com/dblusbnss/image/upload/f_auto,q_auto/DSC_7163_g1mlkx" alt="Avatar" />
-        </div>
-        <div className="content">
-          <div className="social_icons">
-            <a href="https://github.com/JamadadeHarshita" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-            <a href="https://www.linkedin.com/in/harshita-jamadade/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
-          </div>
-          <h1>Harshita Jamadade</h1>
-          <p>AI/NLP Engineer</p>
+    <div className="main-container">
 
-          <div className="mobile_social_icons">
-            <a href="https://github.com/JamadadeHarshita" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-            <a href="https://www.linkedin.com/in/harshita-jamadade/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+      {/* NAV */}
+      <nav className="nav">
+        <span className="nav-logo">Shriti Shah</span>
+        <div className="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#reels">Reels</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-left">
+          <p className="hero-eyebrow">Social Media &amp; Brand Strategist</p>
+          <h1 className="hero-title">
+            Building brands<br />
+            that <em>feel</em> like<br />
+            something.
+          </h1>
+          <p className="hero-sub">
+            I help small brands find their voice online — turning ideas into
+            content that connects, converts, and creates community.
+          </p>
+          <div className="hero-ctas">
+            <a href="#work" className="btn-primary">View Work</a>
+            <a href="#contact" className="btn-ghost">Let's Talk</a>
           </div>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="stat-num">3+</span>
+              <span className="stat-label">Years Exp.</span>
+            </div>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <span className="stat-num">10+</span>
+              <span className="stat-label">Brands</span>
+            </div>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <span className="stat-num">∞</span>
+              <span className="stat-label">Ideas</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-right">
+          <div className="hero-img-frame">
+            {/* 👇 Replace shriti.jpg with her actual photo in src/assets/images/ */}
+            <img
+              src={require('../assets/images/shriti.jpeg')}
+              alt="Shriti Shah"
+              className="hero-img"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+            <div className="hero-img-fallback">S</div>
+            <div className="hero-tag">
+              <strong>@shritishah_</strong>
+              <span>Instagram</span>
+            </div>
+          </div>
+          <div className="hero-bg-block" />
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <div className="marquee-wrap">
+        <div className="marquee-track">
+          {[
+            'Social Media Strategy', 'Content Creation', 'Brand Management',
+            'Copywriting', 'Campaign Development', 'Analytics & Reporting',
+            'Client Servicing', 'Feed Curation', 'Brand Shoots',
+            'Social Media Strategy', 'Content Creation', 'Brand Management',
+            'Copywriting', 'Campaign Development', 'Analytics & Reporting',
+            'Client Servicing', 'Feed Curation', 'Brand Shoots',
+          ].map((item, i) => (
+            <React.Fragment key={i}>
+              <span className="marquee-item">{item}</span>
+              <span className="marquee-dot">✦</span>
+            </React.Fragment>
+          ))}
         </div>
       </div>
+
     </div>
   );
 }

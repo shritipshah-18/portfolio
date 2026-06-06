@@ -1,0 +1,241 @@
+$white:      #FFFFFF;
+$off-white:  #F8F5FF;
+$black:      #0D0D0D;
+$sky:        #A8D8EA;
+$sky-light:  #D6EFF8;
+$lime:       #D4FF4F;
+$lime-light: #F0FFB0;
+$lavender:   #C9B8FF;
+$lav-light:  #EDE8FF;
+$charcoal:   #2C2C3E;
+$muted:      #7A7A9A;
+
+.exp-section {
+  background: $white;
+  padding: 6rem 4rem;
+
+  @media (max-width: 768px) { padding: 4rem 1.5rem; }
+}
+
+// ── HEADER ────────────────────────────────────────────────
+.exp-sec-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.exp-sec-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 1rem;
+}
+
+.exp-sec-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: $black;
+  margin-bottom: 0.8rem;
+
+  em {
+    font-style: italic;
+    background: linear-gradient($lavender, $lavender) no-repeat;
+    background-size: 100% 8px;
+    background-position: 0 92%;
+  }
+}
+
+.exp-sec-sub {
+  font-size: 0.95rem;
+  color: $muted;
+}
+
+// ── TIMELINE ──────────────────────────────────────────────
+.exp-timeline {
+  max-width: 820px;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.exp-entry {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.exp-timeline-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.8rem;
+}
+
+.exp-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  z-index: 1;
+
+  &--sky      { background: $sky;      box-shadow: 0 0 0 4px $sky-light; }
+  &--lavender { background: $lavender; box-shadow: 0 0 0 4px $lav-light; }
+  &--lime     { background: $lime;     box-shadow: 0 0 0 4px $lime-light; }
+}
+
+.exp-line {
+  width: 1px;
+  flex: 1;
+  background: rgba(0,0,0,0.08);
+  margin: 8px 0;
+  min-height: 2rem;
+}
+
+// ── ENTRY CARD ────────────────────────────────────────────
+.exp-entry-card {
+  background: $off-white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid transparent;
+  transition: box-shadow 0.3s;
+
+  &:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.07); }
+
+  &--sky      { border-left-color: $sky; }
+  &--lavender { border-left-color: $lavender; }
+  &--lime     { border-left-color: $lime; }
+
+  @media (max-width: 768px) { padding: 1.5rem; }
+}
+
+.exp-entry-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.exp-logo-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: $white;
+  border: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.exp-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.exp-entry-meta {
+  flex: 1;
+}
+
+.exp-role {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: $black;
+  margin-bottom: 0.2rem;
+}
+
+.exp-company {
+  font-size: 0.88rem;
+  color: $muted;
+  margin-bottom: 0.6rem;
+  font-style: italic;
+}
+
+.exp-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.exp-badge {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+
+  &--sky      { background: $sky-light;  color: $charcoal; }
+  &--lavender { background: $lav-light;  color: $charcoal; }
+  &--lime     { background: $lime-light; color: $charcoal; }
+  &--gray     { background: rgba(0,0,0,0.06); color: $muted; }
+}
+
+.exp-points {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: $charcoal;
+    padding-left: 1.2rem;
+    position: relative;
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: $muted;
+    }
+  }
+}
+
+// ── CERTS ─────────────────────────────────────────────────
+.exp-certs {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.exp-certs-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.exp-certs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.exp-cert-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: $off-white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 100px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.8rem;
+  color: $charcoal;
+  transition: background 0.2s;
+
+  &:hover { background: $lav-light; }
+}
+
+.exp-cert-icon {
+  font-size: 0.9rem;
+}
