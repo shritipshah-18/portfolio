@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.8bc835f6.css",
+    "main.js": "/portfolio/static/js/main.63f9c5f4.js",
+    "static/js/453.cba9e5b1.chunk.js": "/portfolio/static/js/453.cba9e5b1.chunk.js",
+    "static/media/bg-light.png": "/portfolio/static/media/bg-light.bac0efb485244a522981.png",
+    "static/media/shriti.jpeg": "/portfolio/static/media/shriti.429da160d141f2b4aaed.jpeg",
+    "static/media/dswedding.jpg": "/portfolio/static/media/dswedding.862e065962a5954bc081.jpg",
+    "static/media/the_white_crow_store_logo.png": "/portfolio/static/media/the_white_crow_store_logo.e2afe1ded23080a9f392.png",
+    "static/media/StoreMyGoods.png": "/portfolio/static/media/StoreMyGoods.e66da8540f974f59f9d6.png",
+    "static/media/inventure.png": "/portfolio/static/media/inventure.bd4a6ac76a770f310ec6.png",
+    "static/media/spek_digital_logo.png": "/portfolio/static/media/spek_digital_logo.f32b7e36067dfd695775.png",
+    "index.html": "/portfolio/index.html",
+    "main.8bc835f6.css.map": "/portfolio/static/css/main.8bc835f6.css.map",
+    "main.63f9c5f4.js.map": "/portfolio/static/js/main.63f9c5f4.js.map",
+    "453.cba9e5b1.chunk.js.map": "/portfolio/static/js/453.cba9e5b1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8bc835f6.css",
+    "static/js/main.63f9c5f4.js"
+  ]
+}
