@@ -26,6 +26,14 @@ const brands = [
     color: 'lime',
     image: require('../assets/images/StoreMyGoods.png'),
   },
+  {
+    name: 'Vittag',
+    category: 'Fashion & Retail',
+    desc: 'Created scroll-stopping content and managed social presence for this fashion-forward brand.',
+    tags: ['Content Creation', 'Brand Strategy'],
+    color: 'sky',
+    image: require('../assets/images/vittag.jpg'),
+  },
 ];
 
 function BrandCard({ brand, index, visible }: { brand: typeof brands[0], index: number, visible: boolean }) {

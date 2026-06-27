@@ -1,0 +1,190 @@
+$off-white: #F8F5FF;
+$white:     #FFFFFF;
+$black:     #0D0D0D;
+$charcoal:  #2C2C3E;
+$muted:     #7A7A9A;
+$sky:       #A8D8EA;
+$sky-light: #D6EFF8;
+$lime:      #D4FF4F;
+
+.mr-section {
+  background: $white;
+  padding: 6rem 0 5rem;
+  overflow: hidden;
+}
+
+.mr-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 0 4rem;
+
+  @media (max-width: 768px) { padding: 0 1.5rem; }
+}
+
+.mr-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 1.2rem;
+}
+
+.mr-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $lime;
+  flex-shrink: 0;
+  animation: mr-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes mr-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(212,255,79,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(212,255,79,0.08); }
+}
+
+.mr-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: $black;
+  line-height: 1.2;
+  margin-bottom: 0.9rem;
+
+  em {
+    font-style: italic;
+    background: linear-gradient($sky, $sky) no-repeat;
+    background-size: 100% 8px;
+    background-position: 0 92%;
+  }
+}
+
+.mr-sub {
+  font-size: 0.9rem;
+  color: $muted;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+// ── BAND ──────────────────────────────────────────────────
+.mr-band {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  &:active { cursor: grabbing; }
+}
+
+.mr-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  z-index: 3;
+  pointer-events: none;
+
+  &--left  { left: 0;  background: linear-gradient(to right, $white, transparent); }
+  &--right { right: 0; background: linear-gradient(to left,  $white, transparent); }
+}
+
+.mr-track {
+  display: flex;
+  gap: 20px;
+  padding: 16px 20px 20px;
+  will-change: transform;
+  width: max-content;
+}
+
+// ── CARD ──────────────────────────────────────────────────
+.mr-card {
+  width: 260px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: $off-white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+  }
+}
+
+// ── VIDEO CLIP ────────────────────────────────────────────
+.mr-video-clip {
+  position: relative;
+  width: 100%;
+  height: 462px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 18px 18px 0 0;
+}
+
+.mr-iframe {
+  position: absolute;
+  top: -72px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 720px;
+  border: none;
+  pointer-events: none;
+}
+
+.mr-footer-mask {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 68px;
+  background: $off-white;
+  z-index: 2;
+  pointer-events: none;
+}
+
+// ── LABEL ─────────────────────────────────────────────────
+.mr-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px 14px;
+  background: $off-white;
+}
+
+.mr-info { flex: 1; overflow: hidden; }
+
+.mr-brand {
+  font-family: 'Georgia', serif;
+  font-size: 0.9rem;
+  color: $black;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mr-cat {
+  font-size: 0.62rem;
+  color: $muted;
+  letter-spacing: 0.05em;
+}
+
+.mr-ig-link {
+  font-size: 0.7rem;
+  color: $muted;
+  text-decoration: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: auto;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover { background: $sky-light; color: $charcoal; }
+}

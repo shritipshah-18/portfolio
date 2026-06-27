@@ -13,15 +13,16 @@ $muted:      #7A7A9A;
 // ── SECTION ───────────────────────────────────────────────
 .brands-section {
   background: $off-white;
-  padding: 6rem 4rem;
+  padding: 6rem 0 4rem;
 
-  @media (max-width: 768px) { padding: 4rem 1.5rem; }
+  @media (max-width: 768px) { padding: 3rem 0 3rem; }
 }
 
 // ── HEADER ────────────────────────────────────────────────
 .brands-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
 }
 
 .brands-eyebrow {
@@ -34,7 +35,7 @@ $muted:      #7A7A9A;
 
 .brands-title {
   font-family: 'Georgia', serif;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 400;
   color: $black;
   margin-bottom: 0.8rem;
@@ -48,54 +49,37 @@ $muted:      #7A7A9A;
 }
 
 .brands-sub {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: $muted;
-  max-width: 480px;
+  max-width: 440px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-// ── STORY GRID ────────────────────────────────────────────
+// ── SCROLL ROW ────────────────────────────────────────────
 .story-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 3rem;
-
-  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
-
-  @media (max-width: 560px) {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    grid-template-columns: unset !important;
-    overflow-x: scroll;
-    gap: 14px;
-    padding: 8px 24px 16px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
-  }
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 18px;
+  padding: 8px 32px 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
 }
 
-// ── STORY CARD ────────────────────────────────────────────
+// ── CARD ──────────────────────────────────────────────────
 .story-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
   background: $white;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.07);
   cursor: pointer;
-
-  @media (max-width: 560px) {
-    flex: 0 0 calc(100vw - 48px) !important;
-    width: calc(100vw - 48px) !important;
-    min-width: 0 !important;
-    scroll-snap-align: center;
-  }
-
-  // entrance animation
   opacity: 0;
-  transform: translateY(40px) scale(0.97);
+  transform: translateY(30px) scale(0.97);
   transition:
     opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
@@ -107,8 +91,13 @@ $muted:      #7A7A9A;
   }
 
   &:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+  }
+
+  @media (max-width: 560px) {
+    flex: 0 0 78vw;
+    scroll-snap-align: center;
   }
 }
 
@@ -116,14 +105,11 @@ $muted:      #7A7A9A;
 .story-img-wrap {
   position: relative;
   width: 100%;
-  height: 300px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-
-  @media (max-width: 560px) { height: 140px; }
-
-  &--sky      { background: $sky-light; }
-  &--lavender { background: $lav-light; }
-  &--lime     { background: $lime-light; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .story-card--sky &      { background: $sky-light; }
   .story-card--lavender & { background: $lav-light; }
@@ -133,28 +119,29 @@ $muted:      #7A7A9A;
 .story-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 24px;
+  box-sizing: border-box;
   display: block;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 
-  .story-card:hover & { transform: scale(1.05); }
+  .story-card:hover & { transform: scale(1.06); }
 }
 
 .story-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  font-size: 0.62rem;
+  top: 12px;
+  left: 12px;
+  font-size: 0.58rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.35rem 0.8rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 100px;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
+  max-width: calc(100% - 24px);
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: fit-content;
 
   &--sky      { background: $sky;      color: $charcoal; }
   &--lavender { background: $lavender; color: $charcoal; }
@@ -163,27 +150,23 @@ $muted:      #7A7A9A;
 
 // ── BODY ──────────────────────────────────────────────────
 .story-body {
-  padding: 20px 22px 24px;
-
-  @media (max-width: 560px) { padding: 10px 10px 12px; }
+  padding: 16px 18px 18px;
 }
 
 .story-name {
   font-family: 'Georgia', serif;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 400;
   color: $black;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.3;
-
-  @media (max-width: 560px) { font-size: 0.75rem; margin-bottom: 4px; }
 }
 
 .story-desc {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: $muted;
-  line-height: 1.7;
-  margin-bottom: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 
   @media (max-width: 560px) { display: none; }
 }
@@ -191,14 +174,14 @@ $muted:      #7A7A9A;
 .story-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .story-tag {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.3rem 0.9rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 100px;
   font-weight: 500;
 
@@ -212,7 +195,7 @@ $muted:      #7A7A9A;
   display: none;
   justify-content: center;
   gap: 8px;
-  margin: 12px 0 4px;
+  margin: 14px 0 6px;
 
   @media (max-width: 560px) { display: flex; }
 }
@@ -234,41 +217,46 @@ $muted:      #7A7A9A;
   }
 }
 
-// ── BOTTOM CTA ────────────────────────────────────────────
+// ── CTA ───────────────────────────────────────────────────
 .brands-cta {
   background: $black;
   border-radius: 12px;
-  padding: 2.5rem 3rem;
+  margin: 2rem 32px 0;
+  padding: 2.2rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
+
+  @media (max-width: 560px) {
+    margin: 1.5rem 16px 0;
+    padding: 1.8rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .brands-cta-text {
   font-family: 'Georgia', serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-style: italic;
   color: $white;
 }
 
 .brands-cta-btn {
   display: inline-block;
-  padding: 0.85rem 2.2rem;
+  padding: 0.8rem 2rem;
   background: $lime;
   color: $black;
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 500;
-  border-radius: 2px;
+  font-weight: 600;
+  border-radius: 4px;
   white-space: nowrap;
   transition: opacity 0.3s, transform 0.2s;
 
-  &:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
-  }
+  &:hover { opacity: 0.85; transform: translateY(-2px); }
 }

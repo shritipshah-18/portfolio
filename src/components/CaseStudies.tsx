@@ -1,13 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../assets/styles/CaseStudies.scss';
+import reelsData from '../data/reels.json';
 
-const reels = [
-  { id: 'DGCy7EzoAM1', num: '01', brand: 'Campaign Reel',  label: 'Finance & Investing'  },
-  { id: 'DErzBPLqm8O', num: '02', brand: 'Brand Story',    label: 'Wellness & Lifestyle' },
-  { id: 'DHiEGXZy5GS', num: '03', brand: 'Product Drop',   label: 'Beauty & Skincare'    },
-  { id: 'DDRrvfKIREJ', num: '04', brand: 'Viral Series',   label: 'Beauty & Skincare'    },
-  { id: 'DG-lKFrvNJJ', num: '05', brand: 'Creator Collab', label: 'Lifestyle & Fashion'  },
-];
+function getReelId(url: string): string {
+  const match = url.match(/reel\/([^/?]+)/);
+  return match ? match[1] : '';
+}
+
+const reels = reelsData.map((r, i) => ({
+  id:    getReelId(r.url),
+  num:   String(i + 1).padStart(2, '0'),
+  brand: r.title,
+  label: r.label,
+}));
 
 function ReelCard({ reel }: { reel: typeof reels[0] }) {
   return (

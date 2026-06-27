@@ -1,0 +1,232 @@
+$off-white: #F8F5FF;
+$white:     #FFFFFF;
+$black:     #0D0D0D;
+$charcoal:  #2C2C3E;
+$muted:     #7A7A9A;
+$sky:       #A8D8EA;
+$sky-light: #D6EFF8;
+$lime:      #D4FF4F;
+
+// ── SECTION ───────────────────────────────────────────────
+.rec-section {
+  background: $black;
+  padding: 6rem 2rem 5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+// ── HEADER ────────────────────────────────────────────────
+.rec-header {
+  margin-bottom: 3rem;
+}
+
+.rec-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.2rem;
+}
+
+.rec-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $lime;
+  flex-shrink: 0;
+  animation: rec-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes rec-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(212,255,79,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(212,255,79,0.08); }
+}
+
+.rec-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  color: $white;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+
+  em {
+    font-style: italic;
+    color: $lime;
+  }
+}
+
+.rec-sub {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+}
+
+// ── STAGE ─────────────────────────────────────────────────
+.rec-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin: 0 auto;
+  max-width: 700px;
+
+  @media (max-width: 600px) { gap: 12px; }
+}
+
+// ── ARROWS ────────────────────────────────────────────────
+.rec-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: $white;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+
+  &:hover:not(:disabled) {
+    background: rgba(212,255,79,0.15);
+    border-color: $lime;
+    color: $lime;
+    transform: scale(1.1);
+  }
+
+  &:disabled { opacity: 0.2; cursor: default; }
+
+  @media (max-width: 600px) {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+// ── SPOTLIGHT CARD ────────────────────────────────────────
+.rec-card {
+  flex: 1;
+  max-width: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #1a1a1a;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.07);
+
+  // slide-in animation on card change
+  animation: rec-slide-in 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes rec-slide-in {
+  from { opacity: 0; transform: scale(0.94) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+// ── VIDEO CLIP ────────────────────────────────────────────
+.rec-video-clip {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  background: #111;
+
+  @media (max-width: 600px) { height: 440px; }
+}
+
+.rec-iframe {
+  position: absolute;
+  top: -72px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 800px;
+  border: none;
+  pointer-events: none;
+}
+
+.rec-footer-mask {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 68px;
+  background: #1a1a1a;
+  z-index: 2;
+  pointer-events: none;
+}
+
+// ── META ──────────────────────────────────────────────────
+.rec-meta {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.rec-title-label {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  color: $white;
+}
+
+.rec-cat {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.rec-ig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: $lime;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.7; }
+}
+
+// ── DOTS ──────────────────────────────────────────────────
+.rec-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.rec-dot-btn {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s;
+
+  &.active {
+    width: 24px;
+    border-radius: 4px;
+    background: $lime;
+  }
+}
+
+// ── COUNTER ───────────────────────────────────────────────
+.rec-counter {
+  font-family: 'Georgia', serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.25);
+  margin-top: 20px;
+  letter-spacing: 0.1em;
+}
