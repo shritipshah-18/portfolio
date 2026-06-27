@@ -9,7 +9,7 @@ $lime:      #D4FF4F;
 
 // ── SECTION ───────────────────────────────────────────────
 .rec-section {
-  background: $black;
+  background: $off-white;
   padding: 6rem 2rem 5rem;
   overflow: hidden;
   text-align: center;
@@ -27,7 +27,7 @@ $lime:      #D4FF4F;
   font-size: 0.68rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: $muted;
   margin-bottom: 1.2rem;
 }
 
@@ -49,19 +49,21 @@ $lime:      #D4FF4F;
   font-family: 'Georgia', serif;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 400;
-  color: $white;
+  color: $black;
   line-height: 1.15;
   margin-bottom: 0.8rem;
 
   em {
     font-style: italic;
-    color: $lime;
+    background: linear-gradient($sky, $sky) no-repeat;
+    background-size: 100% 8px;
+    background-position: 0 92%;
   }
 }
 
 .rec-sub {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.4);
+  color: $muted;
   line-height: 1.7;
 }
 
@@ -82,9 +84,9 @@ $lime:      #D4FF4F;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
-  color: $white;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  background: $white;
+  color: $black;
   font-size: 1.6rem;
   display: flex;
   align-items: center;
@@ -115,9 +117,9 @@ $lime:      #D4FF4F;
   max-width: 340px;
   border-radius: 24px;
   overflow: hidden;
-  background: #1a1a1a;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.07);
+  background: $white;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.07);
 
   // slide-in animation on card change
   animation: rec-slide-in 0.45s cubic-bezier(0.22,1,0.36,1);
@@ -153,7 +155,7 @@ $lime:      #D4FF4F;
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 68px;
-  background: #1a1a1a;
+  background: $white;
   z-index: 2;
   pointer-events: none;
 }
@@ -170,12 +172,12 @@ $lime:      #D4FF4F;
 .rec-title-label {
   font-family: 'Georgia', serif;
   font-size: 1.1rem;
-  color: $white;
+  color: $black;
 }
 
 .rec-cat {
   font-size: 0.68rem;
-  color: rgba(255,255,255,0.4);
+  color: $muted;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -186,7 +188,7 @@ $lime:      #D4FF4F;
   align-items: center;
   gap: 6px;
   font-size: 0.72rem;
-  color: $lime;
+  color: $charcoal;
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -209,7 +211,7 @@ $lime:      #D4FF4F;
   height: 8px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.15);
   cursor: pointer;
   padding: 0;
   transition: background 0.25s, width 0.25s, border-radius 0.25s;
@@ -217,7 +219,7 @@ $lime:      #D4FF4F;
   &.active {
     width: 24px;
     border-radius: 4px;
-    background: $lime;
+    background: $charcoal;
   }
 }
 
@@ -226,7 +228,7 @@ $lime:      #D4FF4F;
   font-family: 'Georgia', serif;
   font-size: 0.75rem;
   font-style: italic;
-  color: rgba(255,255,255,0.25);
+  color: $muted;
   margin-top: 20px;
   letter-spacing: 0.1em;
 }
