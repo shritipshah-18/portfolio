@@ -12,7 +12,7 @@ const achievements = [
     emoji: '🎯',
     title: 'Campaign Performance',
     metric: '10+ Campaigns',
-    desc: 'Led topical and seasonal campaigns end-to-end — from concept to creative execution and post-analysis.',
+    desc: 'Led topical and seasonal campaigns end-to-end from concept to creative execution and post-analysis.',
   },
   {
     emoji: '🏪',
@@ -44,7 +44,7 @@ function Achievements() {
           yes, <em>and?</em>
         </h2>
         <p className="ach-subtitle">
-          Okay but seriously — here's why you should work with me.
+          Okay but seriously, here's why you should work with me.
         </p>
       </div>
 
@@ -52,14 +52,14 @@ function Achievements() {
       <div className="ach-intro-grid">
         <div className="ach-intro-left">
           <p>
-            Hi, I'm <strong>Shriti Shah</strong> — a social media strategist
+            Hi, I'm <strong>Shriti Shah</strong>, a social media strategist
             and brand storyteller based in India. I have a BBA from KLE's
             Lingaraj College and 3+ years of hands-on experience turning
             small brands into scroll-stopping presences.
           </p>
           <p>
             I've worked across hospitality, finance, fashion, and storage
-            brands — which means I know how to adapt tone, aesthetic, and
+            brands, which means I know how to adapt tone, aesthetic, and
             strategy to completely different audiences.
           </p>
           <p>
@@ -79,7 +79,7 @@ function Achievements() {
           <div className="ach-quote-box">
             <span className="ach-quote-mark">"</span>
             <p className="ach-quote-text">
-              I don't just fill up a content calendar — I build a brand world.
+              I don't just fill up a content calendar  I build a brand world.
             </p>
             <p className="ach-quote-name">— Shriti Shah</p>
           </div>

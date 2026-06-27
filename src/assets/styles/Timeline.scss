@@ -5,13 +5,12 @@ $sky:        #A8D8EA;
 $sky-light:  #D6EFF8;
 $lime:       #D4FF4F;
 $lime-light: #F0FFB0;
-$pink:       #FF8FAB;
-$pink-light: #FFD6E0;
 $lavender:   #C9B8FF;
 $lav-light:  #EDE8FF;
 $charcoal:   #2C2C3E;
 $muted:      #7A7A9A;
 
+// ── SECTION ───────────────────────────────────────────────
 .brands-section {
   background: $off-white;
   padding: 6rem 4rem;
@@ -51,166 +50,188 @@ $muted:      #7A7A9A;
 .brands-sub {
   font-size: 0.95rem;
   color: $muted;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-// ── BRAND CARDS ───────────────────────────────────────────
-.brands-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 3rem;
-  background: rgba(0,0,0,0.06);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.brand-card {
+// ── STORY GRID ────────────────────────────────────────────
+.story-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 3rem;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+
+  @media (max-width: 560px) {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: unset !important;
+    overflow-x: scroll;
+    gap: 14px;
+    padding: 8px 24px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+}
+
+// ── STORY CARD ────────────────────────────────────────────
+.story-card {
   background: $white;
-  transition: background 0.3s;
-  min-height: 320px;
-
-  // alternate image side
-  &:nth-child(even) {
-    grid-template-columns: 1.5fr 1fr;
-
-    .brand-img-wrap { order: 2; }
-    .brand-content  { order: 1; }
-  }
-
-  &:hover { background: #FEFEFE; }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr !important;
-
-    .brand-img-wrap { order: 1 !important; }
-    .brand-content  { order: 2 !important; }
-  }
-}
-
-// IMAGE SIDE
-.brand-img-wrap {
-  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  min-height: 300px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  cursor: pointer;
 
-  @media (max-width: 768px) { min-height: 220px; }
+  @media (max-width: 560px) {
+    flex: 0 0 calc(100vw - 48px) !important;
+    width: calc(100vw - 48px) !important;
+    min-width: 0 !important;
+    scroll-snap-align: center;
+  }
+
+  // entrance animation
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+  }
 }
 
-.brand-img {
+// ── IMAGE AREA ────────────────────────────────────────────
+.story-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+
+  @media (max-width: 560px) { height: 140px; }
+
+  &--sky      { background: $sky-light; }
+  &--lavender { background: $lav-light; }
+  &--lime     { background: $lime-light; }
+
+  .story-card--sky &      { background: $sky-light; }
+  .story-card--lavender & { background: $lav-light; }
+  .story-card--lime &     { background: $lime-light; }
+}
+
+.story-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 
-  .brand-card:hover & { transform: scale(1.03); }
+  .story-card:hover & { transform: scale(1.05); }
 }
 
-.brand-img-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-
-  .brand-card--sky &      { background: $sky-light; }
-  .brand-card--lavender & { background: $lav-light; }
-  .brand-card--lime &     { background: $lime-light; }
-}
-
-.brand-initial {
-  font-family: 'Georgia', serif;
-  font-size: 5rem;
-  font-style: italic;
-  color: rgba(0,0,0,0.15);
-  line-height: 1;
-}
-
-.brand-placeholder-hint {
-  font-size: 0.72rem;
-  color: $muted;
-  text-align: center;
-  line-height: 1.6;
-
-  code {
-    font-size: 0.68rem;
-    background: rgba(0,0,0,0.06);
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    color: $charcoal;
-  }
-}
-
-.brand-img-badge {
+.story-badge {
   position: absolute;
-  top: 1.2rem;
-  left: 1.2rem;
+  top: 14px;
+  left: 14px;
+  right: 14px;
   font-size: 0.62rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.35rem 0.8rem;
   border-radius: 100px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: fit-content;
 
   &--sky      { background: $sky;      color: $charcoal; }
   &--lavender { background: $lavender; color: $charcoal; }
   &--lime     { background: $lime;     color: $charcoal; }
 }
 
-// CONTENT SIDE
-.brand-content {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
+// ── BODY ──────────────────────────────────────────────────
+.story-body {
+  padding: 20px 22px 24px;
 
-  @media (max-width: 768px) { padding: 2rem 1.5rem; }
+  @media (max-width: 560px) { padding: 10px 10px 12px; }
 }
 
-.brand-num {
+.story-name {
   font-family: 'Georgia', serif;
-  font-size: 0.85rem;
-  color: $muted;
-  letter-spacing: 0.1em;
-}
-
-.brand-name {
-  font-family: 'Georgia', serif;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: 1.2rem;
   font-weight: 400;
   color: $black;
-  line-height: 1.2;
+  margin-bottom: 8px;
+  line-height: 1.3;
+
+  @media (max-width: 560px) { font-size: 0.75rem; margin-bottom: 4px; }
 }
 
-.brand-desc {
-  font-size: 0.92rem;
-  line-height: 1.8;
+.story-desc {
+  font-size: 0.85rem;
   color: $muted;
-  max-width: 420px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+
+  @media (max-width: 560px) { display: none; }
 }
 
-.brand-tags {
+.story-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: 8px;
 }
 
-.brand-tag {
+.story-tag {
   font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.3rem 0.8rem;
+  padding: 0.3rem 0.9rem;
   border-radius: 100px;
+  font-weight: 500;
 
   &--sky      { background: $sky-light;  color: $charcoal; border: 1px solid $sky; }
   &--lavender { background: $lav-light;  color: $charcoal; border: 1px solid $lavender; }
   &--lime     { background: $lime-light; color: $charcoal; border: 1px solid $lime; }
+}
+
+// ── MOBILE DOTS ───────────────────────────────────────────
+.story-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 4px;
+
+  @media (max-width: 560px) { display: flex; }
+}
+
+.story-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.15);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s;
+
+  &.active {
+    width: 22px;
+    border-radius: 4px;
+    background: $charcoal;
+  }
 }
 
 // ── BOTTOM CTA ────────────────────────────────────────────

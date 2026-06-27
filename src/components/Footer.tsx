@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer>
       <div>
-        <a href="https://github.com/JamadadeHarshita" target="_blank" rel="noreferrer"><GitHubIcon/></a>
+        <a href="https://jamadade-harshita-github-io.vercel.app/" target="_blank" rel="noreferrer"><GitHubIcon/></a>
         <a href="https://www.linkedin.com/in/harshita-jamadade/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
       </div>
     </footer>

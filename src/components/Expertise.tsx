@@ -7,7 +7,7 @@ const services = [
     icon: '📲',
     title: 'Social Media Management',
     color: 'sky',
-    desc: 'Full-platform management that keeps your brand active, consistent, and growing — without you lifting a finger.',
+    desc: 'Full-platform management that keeps your brand active, consistent, and growing, without you lifting a finger.',
     points: ['Content calendar planning', 'Post creation & scheduling', 'Community management', 'Monthly performance reports'],
   },
   {
@@ -15,7 +15,7 @@ const services = [
     icon: '🎨',
     title: 'Brand Strategy & Identity',
     color: 'lime',
-    desc: 'Defining who you are online — your tone, visual language, and the story your brand tells every single day.',
+    desc: 'Defining who you are online : your tone, visual language, and the story your brand tells every single day.',
     points: ['Brand voice development', 'Feed aesthetic direction', 'Competitor analysis', 'Brand guidelines doc'],
   },
   {
@@ -31,7 +31,7 @@ const services = [
     icon: '✍️',
     title: 'Content Creation',
     color: 'lavender',
-    desc: 'Scroll-stopping visuals and captions that feel authentic to your brand — not generic filler content.',
+    desc: 'Scroll-stopping visuals and captions that feel authentic to your brand, not generic filler content.',
     points: ['Copywriting & captions', 'Canva graphic design', 'Reel cover designs', 'Moodboard creation'],
   },
   {
@@ -39,7 +39,7 @@ const services = [
     icon: '📸',
     title: 'Brand Shoot Direction',
     color: 'sky',
-    desc: 'Planning shoots that give you months of content — shot with intention, used with strategy.',
+    desc: 'Planning shoots that give you months of content, shot with intention, used with strategy.',
     points: ['Shot-list planning', 'Mood & prop direction', 'On-set coordination', 'Post-shoot editing brief'],
   },
   {
@@ -47,7 +47,7 @@ const services = [
     icon: '📊',
     title: 'Analytics & Reporting',
     color: 'lime',
-    desc: 'Numbers that actually mean something — turned into clear insights and an action plan for next month.',
+    desc: 'Numbers that actually mean something, turned into clear insights and an action plan for next month.',
     points: ['Monthly analytics report', 'Audience insights', 'Content performance review', 'Growth strategy updates'],
   },
 ];

@@ -56,7 +56,7 @@ function Experience() {
           Where I've <em>been</em>
         </h2>
         <p className="exp-sec-sub">
-          3+ years across agencies, brands, and events — here's the journey.
+          3+ years across agencies, brands, and events and here's the journey.
         </p>
       </div>
 

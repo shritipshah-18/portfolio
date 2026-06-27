@@ -1,0 +1,206 @@
+$off-white: #F8F5FF;
+$white:     #FFFFFF;
+$black:     #0D0D0D;
+$charcoal:  #2C2C3E;
+$muted:     #7A7A9A;
+$sky:       #A8D8EA;
+$sky-light: #D6EFF8;
+$lime:      #D4FF4F;
+
+// ── SECTION ───────────────────────────────────────────────
+.cs-section {
+  background: $off-white;
+  padding: 6rem 0 5rem;
+  overflow: hidden;
+}
+
+// ── HEADER ────────────────────────────────────────────────
+.cs-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 0 4rem;
+
+  @media (max-width: 768px) { padding: 0 1.5rem; }
+}
+
+.cs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 1.2rem;
+}
+
+.cs-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $lime;
+  flex-shrink: 0;
+  animation: cs-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes cs-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(212,255,79,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(212,255,79,0.08); }
+}
+
+.cs-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: $black;
+  line-height: 1.2;
+  margin-bottom: 0.9rem;
+
+  em {
+    font-style: italic;
+    background: linear-gradient($sky, $sky) no-repeat;
+    background-size: 100% 8px;
+    background-position: 0 92%;
+  }
+}
+
+.cs-sub {
+  font-size: 0.9rem;
+  color: $muted;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+// ── BAND (overflow container) ─────────────────────────────
+.cs-band {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+
+  &:active { cursor: grabbing; }
+}
+
+// fade edges
+.cs-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  z-index: 3;
+  pointer-events: none;
+
+  &--left  { left: 0;  background: linear-gradient(to right, $off-white, transparent); }
+  &--right { right: 0; background: linear-gradient(to left,  $off-white, transparent); }
+}
+
+// ── SCROLLING TRACK ───────────────────────────────────────
+.cs-track {
+  display: flex;
+  gap: 20px;
+  padding: 16px 20px 20px;
+  will-change: transform;
+  width: max-content;
+}
+
+// ── CARD ──────────────────────────────────────────────────
+.cs-card {
+  width: 260px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: $white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+  }
+}
+
+// ── VIDEO CLIP — clips Instagram header & footer ──────────
+.cs-video-clip {
+  position: relative;
+  width: 100%;
+  height: 462px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 18px 18px 0 0;
+
+  // tiny white sliver hides the "likes" line without feeling empty
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 68px;
+    background: $white;
+    pointer-events: none;
+    z-index: 2;
+    border-radius: 0 0 0 0;
+  }
+}
+
+.cs-iframe {
+  position: absolute;
+  top: -72px;   // skip Instagram profile header (~72px)
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 720px; // full embed height — footer falls outside clip
+  border: none;
+  pointer-events: none;
+}
+
+// ── LABEL ROW ─────────────────────────────────────────────
+.cs-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px 14px;
+  background: $white;
+}
+
+.cs-num {
+  font-family: 'Georgia', serif;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: $muted;
+  flex-shrink: 0;
+}
+
+.cs-info { flex: 1; overflow: hidden; }
+
+.cs-brand {
+  font-family: 'Georgia', serif;
+  font-size: 0.9rem;
+  color: $black;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cs-cat {
+  font-size: 0.62rem;
+  color: $muted;
+  letter-spacing: 0.05em;
+}
+
+.cs-ig-link {
+  font-size: 0.7rem;
+  color: $muted;
+  text-decoration: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: auto;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover { background: $sky-light; color: $charcoal; }
+}

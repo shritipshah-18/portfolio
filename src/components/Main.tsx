@@ -1,21 +1,49 @@
-import React from 'react';
-import '../assets/styles/Main.scss';;
+import React, { useState } from 'react';
+import '../assets/styles/Main.scss';
 
 function Main() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="main-container">
 
       {/* NAV */}
       <nav className="nav">
         <span className="nav-logo">Shriti Shah</span>
+
+        {/* DESKTOP LINKS */}
         <div className="nav-links">
           <a href="#about">About</a>
+          <a href="#experience">Experience</a>
           <a href="#services">Services</a>
           <a href="#work">Work</a>
-          <a href="#reels">Reels</a>
+          <a href="#case-studies">Reels</a>
           <a href="#contact">Contact</a>
         </div>
+
+        {/* HAMBURGER BUTTON */}
+        <button
+          className={`nav-burger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </nav>
+
+      {/* MOBILE MENU OVERLAY */}
+      {menuOpen && (
+        <div className="mobile-menu">
+          <a href="#about"         onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#experience"    onClick={() => setMenuOpen(false)}>Experience</a>
+          <a href="#services"      onClick={() => setMenuOpen(false)}>Services</a>
+          <a href="#work"          onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#case-studies"  onClick={() => setMenuOpen(false)}>Reels</a>
+          <a href="#contact"       onClick={() => setMenuOpen(false)}>Contact</a>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="hero">
@@ -54,7 +82,6 @@ function Main() {
 
         <div className="hero-right">
           <div className="hero-img-frame">
-            {/* 👇 Replace shriti.jpg with her actual photo in src/assets/images/ */}
             <img
               src={require('../assets/images/shriti.jpeg')}
               alt="Shriti Shah"

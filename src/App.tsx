@@ -4,6 +4,7 @@ import Achievements from "./components/Achievements";
 import Expertise from "./components/Expertise";
 import Experience from "./components/Experience";
 import Timeline from "./components/Timeline";
+import CaseStudies from "./components/CaseStudies";
 import Contact from "./components/Contact";
 import FadeIn from './components/FadeIn';
 import './index.scss';
@@ -21,6 +22,7 @@ function App() {
         <Experience />
         <Expertise />
         <Timeline />
+        <CaseStudies />
         <Contact />
       </FadeIn>
     </div>

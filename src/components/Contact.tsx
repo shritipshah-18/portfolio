@@ -22,7 +22,7 @@ function Contact() {
           and grow your brand?
         </h2>
         <p className="contact-sub">
-          Whether you're launching from scratch or need a fresh strategy —
+          Whether you're launching from scratch or need a fresh strategy,
           I'd love to hear about your brand. Let's connect.
         </p>
       </div>
@@ -78,7 +78,7 @@ function Contact() {
       <div className="contact-availability">
         <span className="availability-dot" />
         <span className="availability-text">
-          Currently available for new clients — DM or email to get started.
+          Currently available for new clients, DM or email to get started.
         </span>
       </div>
 
@@ -87,7 +87,7 @@ function Contact() {
       <span className="contact-footer-copy">© 2025 — All rights reserved</span>
       <span className="contact-footer-credit">
         Designed & built by{' '}
-        <a href="https://jamadadeharshita.github.io/" target="_blank" rel="noreferrer">
+        <a href="https://jamadade-harshita-github-io.vercel.app/" target="_blank" rel="noreferrer">
           Harshita J
         </a>
       </span>
